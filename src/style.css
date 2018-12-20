@@ -1,0 +1,268 @@
+body {
+  background: #0d0d0d;
+  color: white;
+}
+
+.App {
+  margin: 0 auto;
+}
+
+/*header*/
+nav {
+  background: black;
+  color: red;
+  height: 65px;
+  padding: 0 70px;
+  padding-top: 12px;
+  box-sizing: border-box;
+}
+
+.logo {
+  float: left;
+  font-size: 30px;
+  font-family: Lucida Sans Unicode;
+}
+
+.user {
+  float: right;
+}
+
+.bgImage {
+  height: 750px;
+  width: 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  color: white;
+}
+
+.popularInfo {
+  position: absolute;
+  top: 20%;
+  left: 6%;
+  width: 40%;
+}
+
+.popularInfo h1 {
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+.popularInfo button {
+  background: #cc0000;
+  color: white;
+  height: 50px;
+  width: 200px;
+  margin-top: 40px;
+  font-size: 20px;
+  outline: none;
+  border: 1px solid red;
+  cursor: pointer;
+  font-weight: lighter;
+}
+
+.popularInfo button:hover {
+  background: #e60000;
+}
+
+.switchImg {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.switchImg div {
+  width: 30px;
+  height: 10px;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.switchImg div.active {
+  background: #404040;
+}
+
+/*lists of movies*/
+.lists {
+  margin: 100px 0;
+}
+
+.lists:first-child {
+  margin-top: 50px;
+}
+
+.lists h2 {
+  padding-left: 70px;
+  margin-bottom: 10px;
+}
+
+.menu-item {
+  padding: 0px;
+  margin: 5px 2px;
+  user-select: none;
+  cursor: pointer;
+  border: none;
+}
+.menu-item-wrapper.active {
+  border: 1px blue solid;
+}
+.menu-item.active {
+  border: 1px green solid;
+}
+
+.movie-card {
+  position: relative;
+  width: 300px;
+  height: 170px;
+  transition: all 0.7s;
+  background: black;
+}
+
+img {
+  width: 300px;
+  height: 170px;
+  vertical-align: 0px;
+  transition: all 0.7s;
+  user-select: none;
+}
+
+.movie-title {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  white-space: initial;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  /* transition effect. not necessary */
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.movie-card:hover {
+  width: 330px;
+  height: 190px;
+}
+
+.movie-card:hover .movie-title {
+  visibility: visible;
+  opacity: 1;
+}
+
+.movie-card:hover img {
+  width: 330px;
+  height: 190px;
+  vertical-align: -7px;
+  opacity: 0.3;
+}
+
+.scroll-menu-arrow {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.horizontal-menu {
+  height: 220px;
+}
+
+.arrow-prev,
+.arrow-next {
+  color: red;
+  font-size: 40px;
+}
+
+/* modal */
+
+.backdropStyle {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 50px;
+  padding-top: 10%;
+}
+
+.modalStyle {
+  background-color: black;
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid red;
+  max-width: 90%;
+  min-height: 50%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.close {
+  position: absolute;
+  top: 2%;
+  right: 1%;
+  cursor: pointer;
+  font-size: 30px;
+  color: red;
+}
+
+.grid-container {
+  display: grid;
+  grid-gap: 44px;
+  grid-template-areas: "image info";
+}
+
+.grid-image {
+  grid-area: image;
+}
+
+.grid-info {
+  grid-area: info;
+}
+
+.grid-item {
+  padding: 20px;
+}
+
+.poster {
+  height: 400px;
+  width: auto;
+}
+
+#movie-title {
+  padding: 0;
+  margin-top: 0;
+}
+
+.grid-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+iframe {
+  margin-top: 30px;
+  width: 420px;
+  height: 300px;
+}
+
+@media only screen and (max-width: 1300px) {
+  body {
+    background-color: lightblue;
+  }
+  .grid-info {
+    font-size: 15px;
+  }
+  iframe {
+    width: 350px;
+    height: 200px;
+  }
+}
