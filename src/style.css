@@ -1,6 +1,13 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   background: #0d0d0d;
   color: white;
+  font-family: Helvetica;
 }
 
 .App {
@@ -12,19 +19,79 @@ nav {
   background: black;
   color: red;
   height: 65px;
-  padding: 0 70px;
-  padding-top: 12px;
+  padding-left: 6%;
+  padding-right: 6%;
+  padding-top: 13px;
   box-sizing: border-box;
 }
 
 .logo {
   float: left;
   font-size: 30px;
-  font-family: Lucida Sans Unicode;
 }
 
-.user {
+.logo a {
+  color: #cc0000;
+  text-decoration: none;
+}
+
+.logo a:hover {
+  color: #e60000;
+}
+
+.search-bar {
   float: right;
+}
+
+.search-input {
+  background: none;
+  color: #cc0000;
+  border: 1px solid #cc0000;
+  outline: none;
+  border-radius: 8px;
+  padding: 5px;
+  padding-left: 15px;
+  width: 250px;
+  height: 20px;
+  font-weight: 600;
+  margin-top: 5px;
+  position: relative;
+}
+
+.search-values {
+  background: #0d0d0d;
+  width: 265px;
+  border-radius: 5px;
+  border: 2px solid #cc0000;
+  border-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+  position: absolute;
+  margin-left: 2px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  z-index: 1;
+}
+
+.search-values ul {
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+}
+
+.search-values ul li {
+  margin: 8px;
+}
+
+.search-values a {
+  text-decoration: none;
+  color: #e60000;
+}
+
+.search-values a:hover {
+  text-decoration: underline;
+  font-weight: 600;
 }
 
 .bgImage {
@@ -35,6 +102,7 @@ nav {
   background-size: cover;
   position: relative;
   color: white;
+  z-index: 0;
 }
 
 .popularInfo {
@@ -54,7 +122,7 @@ nav {
   color: white;
   height: 50px;
   width: 200px;
-  margin-top: 40px;
+  margin-top: 20px;
   font-size: 20px;
   outline: none;
   border: 1px solid red;
@@ -162,7 +230,7 @@ img {
 .movie-card:hover img {
   width: 330px;
   height: 190px;
-  vertical-align: -7px;
+  vertical-align: -12px;
   opacity: 0.3;
 }
 
@@ -181,88 +249,250 @@ img {
   font-size: 40px;
 }
 
-/* modal */
+/* movie info */
 
-.backdropStyle {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 200;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 50px;
-  padding-top: 10%;
-}
-
-.modalStyle {
-  background-color: black;
-  position: relative;
-  border-radius: 5px;
-  border: 1px solid red;
-  max-width: 90%;
-  min-height: 50%;
+.content {
+  width: 50%;
   margin: 0 auto;
   padding: 20px;
+  min-height: 410px;
+  font-size: 18px;
+  color: #e6e6e6;
+  font-weight: 500;
 }
 
-.close {
-  position: absolute;
-  top: 2%;
-  right: 1%;
-  cursor: pointer;
-  font-size: 30px;
-  color: red;
+.content h1 {
+  text-align: center;
+  margin: 30px;
+  margin-top: 10px;
 }
 
-.grid-container {
-  display: grid;
-  grid-gap: 44px;
-  grid-template-areas: "image info";
+.content p {
+  line-height: 19px;
 }
 
-.grid-image {
-  grid-area: image;
-}
-
-.grid-info {
-  grid-area: info;
-}
-
-.grid-item {
-  padding: 20px;
-}
-
-.poster {
-  height: 400px;
-  width: auto;
-}
-
-#movie-title {
-  padding: 0;
-  margin-top: 0;
-}
-
-.grid-info ul {
-  list-style: none;
-  padding: 0;
+.video {
+  padding-top: 56.25%;
+  position: relative;
+  -webkit-box-shadow: 0 0 30px grey;
+  box-shadow: 0 0 30px grey;
 }
 
 iframe {
-  margin-top: 30px;
-  width: 420px;
-  height: 300px;
+  border: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
-@media only screen and (max-width: 1300px) {
-  body {
-    background-color: lightblue;
+.overview-container {
+  margin-top: 10px;
+}
+
+.year-run-vote span {
+  font-size: 14px;
+  padding-right: 6px;
+}
+
+.run,
+.vote {
+  border-left: 1px solid white;
+  padding-left: 6px;
+}
+
+.greyed {
+  color: #9c9c9c;
+}
+
+i {
+  color: gold;
+}
+
+footer {
+  height: 60px;
+  background: black;
+  color: white;
+  border-top: 1px solid red;
+  text-align: center;
+}
+
+footer p {
+  margin: 20px auto;
+}
+
+.back-height {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .back-height {
+    height: 100vh;
   }
-  .grid-info {
-    font-size: 15px;
+  /*header*/
+  .bgImage {
+    height: 700px;
   }
-  iframe {
-    width: 350px;
-    height: 200px;
+
+  .header-overview {
+    display: none;
+  }
+
+  .popularInfo {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+  }
+
+  .switchImg div {
+    margin: 10px;
+  }
+
+  /*lists of movies*/
+
+  .lists {
+    margin: 0;
+  }
+
+  .lists h2 {
+    margin-bottom: 0;
+  }
+
+  .movie-card,
+  img {
+    width: 230px;
+    height: 140px;
+  }
+
+  .movie-card:hover,
+  .movie-card:hover img {
+    width: 260px;
+    height: 160px;
+  }
+
+  .arrow-prev,
+  .arrow-next {
+    font-size: 20px;
+  }
+
+  .scroll-menu-arrow {
+    padding: 10px;
+  }
+
+  /*movie-info*/
+  .content {
+    width: 90%;
+    font-size: 93%;
+  }
+
+  .content h1 {
+    margin: 30px 0;
+  }
+}
+
+@media only screen and (max-width: 690px) {
+  .bgImage {
+    height: 400px;
+    background-size: cover;
+  }
+
+  .popularInfo button {
+    margin: 0;
+  }
+
+  .lists h2 {
+    padding-left: 5px;
+    margin-bottom: 10px;
+  }
+
+  .movie-card,
+  img {
+    width: 190px;
+    height: 100px;
+  }
+
+  .movie-card:hover,
+  .movie-card:hover img {
+    width: 220px;
+    height: 120px;
+  }
+
+  .movie-title {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  nav {
+    height: 100px;
+  }
+  .logo,
+  .search-bar {
+    float: none;
+  }
+
+  .logo {
+    text-align: center;
+  }
+
+  .search-input {
+    width: 95%;
+  }
+
+  .search-values {
+    width: 87%;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .back-height {
+    height: 100%;
+  }
+
+  .popularInfo {
+    text-align: center;
+    top: 40%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+  }
+
+  .popularInfo button {
+    height: 40px;
+    width: 100px;
+    font-size: 90%;
+    margin-top: 10px;
+  }
+
+  /* list of movies*/
+
+  .horizontal-menu {
+    height: 190px;
+  }
+
+  .movie-card,
+  img {
+    width: 160px;
+    height: 90px;
+  }
+
+  .movie-card:hover,
+  .movie-card:hover img {
+    width: 190px;
+    height: 110px;
+  }
+}
+
+@media only screen and (max-height: 550px) {
+  .back-height {
+    height: 100%;
   }
 }

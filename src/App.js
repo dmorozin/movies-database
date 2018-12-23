@@ -1,15 +1,20 @@
 import React, { Component } from "react";
-import Header from "./Header";
+import Home from "./header/Home";
+import MovieInfo from "./MovieInfo";
 import "./style.css";
-import ListsOfMovies from "./ListsOfMovies";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-        <ListsOfMovies />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/:movie_id" component={MovieInfo} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
