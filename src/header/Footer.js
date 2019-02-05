@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer>
-      <p>Footer</p>
+      <p>Movies database made with React</p>
     </footer>
   );
 };

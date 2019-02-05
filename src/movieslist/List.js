@@ -19,7 +19,7 @@ class List extends Component {
     movie: {}
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.mounted = true;
     const url =
       typeof this.props.apiCall === "number"

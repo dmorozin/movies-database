@@ -7,6 +7,7 @@ export default class MovieInfo extends Component {
     super(props);
     this.mounted = false;
   }
+
   state = {
     movie: {},
     credits: [],
@@ -67,7 +68,7 @@ export default class MovieInfo extends Component {
     const { movie, credits, video } = this.state;
 
     const backgroundImg = {
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8) , rgba(0, 0, 0, 0.8)), url("https://image.tmdb.org/t/p/original/${
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7) , rgba(0, 0, 0, 0.7)), url("https://image.tmdb.org/t/p/original/${
         movie.backdrop_path
       }")`
     };
