@@ -398,6 +398,25 @@ footer p {
 }
 
 @media only screen and (max-width: 690px) {
+  nav {
+    height: 100px;
+  }
+  .logo,
+  .search-bar {
+    float: none;
+  }
+
+  .logo {
+    text-align: center;
+  }
+
+  .search-input {
+    width: 95%;
+  }
+
+  .search-values {
+    width: 87%;
+  }
   .bgImage {
     height: 400px;
     background-size: cover;
@@ -430,25 +449,6 @@ footer p {
 }
 
 @media only screen and (max-width: 450px) {
-  nav {
-    height: 100px;
-  }
-  .logo,
-  .search-bar {
-    float: none;
-  }
-
-  .logo {
-    text-align: center;
-  }
-
-  .search-input {
-    width: 95%;
-  }
-
-  .search-values {
-    width: 87%;
-  }
 }
 
 @media only screen and (max-width: 350px) {
