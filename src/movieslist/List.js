@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ScrollMenu from "react-horizontal-scrolling-menu";
-import Hover from "./Hover.js";
+import SingleMovie from "./SingleMovie.js";
 
 const Arrow = ({ text, className }) => {
   return <div className={className}>{text}</div>;
@@ -26,9 +26,7 @@ class List extends Component {
         ? `https://api.themoviedb.org/3/discover/movie?api_key=17117ab9c18276d48d8634390c025df4&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${
             this.props.apiCall
           }`
-        : `https://api.themoviedb.org/3/movie/${
-            this.props.apiCall
-          }?api_key=17117ab9c18276d48d8634390c025df4&language=en-US&page=1`;
+        : `https://api.themoviedb.org/3/movie/${this.props.apiCall}?api_key=17117ab9c18276d48d8634390c025df4&language=en-US&page=1`;
 
     fetch(url)
       .then(r => r.json())
@@ -42,20 +40,12 @@ class List extends Component {
     this.mounted = false;
   }
 
-  setMovie = movie => {
-    this.setState({ movie: movie });
-  };
-
   render() {
     const { movies } = this.state;
     const menu = movies.map(movie => {
       return (
         <div className="menu-item" key={movie.id}>
-          <Hover
-            movie={movie}
-            toggleModal={this.toggleModal}
-            setMovie={this.setMovie}
-          />
+          <SingleMovie movie={movie} />
         </div>
       );
     });
